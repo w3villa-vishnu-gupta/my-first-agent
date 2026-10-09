@@ -10,11 +10,8 @@ const app = express();
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
-const MCP_AUTH_TOKEN = process.env.MCP_AUTH_TOKEN;
 
-if (!MCP_AUTH_TOKEN) {
-  throw new Error("MCP_AUTH_TOKEN environment variable is required");
-}
+
 
 function isAuthorized(req) {
   const authHeader = req.headers.authorization;
