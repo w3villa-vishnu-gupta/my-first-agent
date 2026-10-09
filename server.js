@@ -30,10 +30,6 @@ function isAuthorized(req) {
 }
 
 app.all("/mcp", async (req, res) => {
-  if (!isAuthorized(req)) {
-    res.setHeader("WWW-Authenticate", "Bearer");
-    return res.status(401).json({ error: "Unauthorized" });
-  }
 
   const server = new McpServer({
     name: "my-first-mcp-server",
